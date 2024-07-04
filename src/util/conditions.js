@@ -1,7 +1,4 @@
-const colors = {
-    "cloudy_gray": "",
-    "sunny_yellow": ""
-}
+import colors from "./colors";
 
 /**
  * key = id (AccuWeather's "WeatherIcon" number)
@@ -14,7 +11,7 @@ const colors = {
  *      color: color (hex code)
  * }
  */
-export default conditions = {
+const conditions = {
     1: {
         text: "sunny",
         icon: {
@@ -32,3 +29,5 @@ export default conditions = {
         color: ""
     },
 }
+
+export default conditions;
