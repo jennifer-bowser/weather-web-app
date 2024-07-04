@@ -26,7 +26,23 @@ const conditions = {
             day: "",
             night: "",
         },
-        color: ""
+        color: colors.mid_sun_yellow
+    },
+    3: {
+        text: "partly sunny",
+        icon: {
+            day: "",
+            night: "",
+        },
+        color: colors.minor_sun_yellow
+    },
+    4: {
+        text: "intermittent clouds",
+        icon: {
+            day: "",
+            night: "",
+        },
+        color: colors.minor_sun_yellow
     },
 }
 
