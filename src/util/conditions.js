@@ -84,7 +84,7 @@ const conditions = {
     2: new Condition("mostly sunny", few_clouds_day, null, colors.mid_sun_yellow, "and"),
     3: new Condition("partly sunny", few_clouds_day, null, colors.mid_sun_yellow, "and"),
     4: new Condition("intermittent clouds", few_clouds_day, null, colors.mid_sun_yellow, "with"),
-    5: new Condition("hazy sunshine", haze_day, null, colors.hazy_brown, "with"),
+    5: new Condition("hazy sunshine", haze_day, null, colors.hazy_brown, "with"), /* TODO: new icon */
     6: new Condition("mostly cloudy", more_clouds_day, null, colors.low_sun_yellow, "and"),
     7: new Condition("cloudy", cloud_day, cloud_night, colors.cloudy_gray, "and"),
     8: new Condition("overcast", cloud_day, cloud_night, colors.cloudy_gray, "and"),
@@ -105,22 +105,23 @@ const conditions = {
     25: new Condition("sleet", sleet_day, sleet_night, colors.icy_white, "with"),
     26: new Condition("freezing rain", sleet_day, sleet_night, colors.icy_white, "with"),
     29: new Condition("rain and snow", sleet_day, sleet_night, colors.icy_white, "with"),
-    30: new Condition("hot", clear_day, clear_night, colors.full_sun_yellow, "and"), /*TODO: new icon and/or color? */
-    31: new Condition("cold", snow_day, snow_night, colors.icy_white, "and"),   /*TODO: new icon and/or color? */
+    30: new Condition("hot", clear_day, clear_night, colors.full_sun_yellow, "and"), /*TODO: new icon (and color?) */
+    31: new Condition("cold", snow_day, snow_night, colors.icy_white, "and"),   /*TODO: new icon (and color?) */
     32: new Condition("windy", wind_day, wind_night, colors.cloudy_gray, "and"),
     33: new Condition("clear", null, clear_night, null, "and"),
     34: new Condition("mostly clear", null, few_clouds_night, null, "and"),
     35: new Condition("partly cloudy", null, more_clouds_night, null, "and"),
     36: new Condition("intermittent clouds", null, few_clouds_night, null, "with"),
-    37: new Condition("hazy moonlight", null, haze_night, null, "with"),
+    37: new Condition("hazy moonlight", null, haze_night, null, "with"), /* TODO: new icon */
     38: new Condition("mostly cloudy", null, more_clouds_night, null, "and"),
     39: new Condition("partly cloudy with showers", null, partial_rain_night, null, "and"),
     40: new Condition("mostly cloudy with showers", null, partial_rain_night, null, "and"),
-    41: new Condition("partly cloudy with thunderstorms", null, thunderstorm_night, null, "and"),
-    42: new Condition("mostly cloudy with thunderstorms", null, thunderstorm_night, null, "and"),
+    41: new Condition("partly cloudy with thunderstorms", null, thunderstorm_night, null, "and"), /*TODO: new icon (and color?) */
+    42: new Condition("mostly cloudy with thunderstorms", null, thunderstorm_night, null, "and"), /*TODO: new icon (and color?) */
     43: new Condition("mostly cloudy with flurries", null, partial_snow_night, null, "and"),
     44: new Condition("mostly cloudy with snow", null, partial_snow_night, null, "and"),
 }
+/* TODO: add "mostly cloudy" vs a "partly cloud" icons for day and night? */
 
 export default function getCondition(id) {
     return conditions[id] ?? null;
