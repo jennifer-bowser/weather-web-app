@@ -6,6 +6,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
     margin: 10px;
 }
 
@@ -17,5 +18,9 @@
     line-break: 1em;
     margin: 15px 0 0 0;
     font-family: Helvetica;
+    font-weight: 300;
+}
+
+.Bold{
     font-weight: 600;
 }
