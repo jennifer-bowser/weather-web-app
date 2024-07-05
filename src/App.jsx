@@ -1,12 +1,17 @@
-import { getConditionText, getConditionIcon, getConditionColor } from "./util/conditions"
+import WeatherTile from "./components/WeatherTile/WeatherTile"
 
 export default function App() {
+  const tiles = [];
+  for (let i = 1; i <= 44; i++) {
+    tiles.push(<WeatherTile id={i} key={i} />);
+  }
+
   return (
     <>
-      <h1>{getConditionText(1)}</h1>
-      <img src={getConditionIcon(1)} style={{ width: "100px" }} />
-      <div style={{ backgroundColor: getConditionColor(1), width: "100px", height: "100px", border: "1px solid black" }}></div >
-      <div>{getConditionColor(1)}</div>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {tiles}
+      </div>
+
     </>
   )
 }
