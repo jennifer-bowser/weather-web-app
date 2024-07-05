@@ -36,7 +36,7 @@ import sleet_night from "../assets/weather_icons/sleet_night.svg";
 import wind_day from "../assets/weather_icons/wind_day.svg";
 import wind_night from "../assets/weather_icons/wind_night.svg";
 
-class Condition {
+export class Condition {
     IS_DAY = true;
 
     constructor(text, dayIcon, nightIcon, dayColor, linkingWord) {

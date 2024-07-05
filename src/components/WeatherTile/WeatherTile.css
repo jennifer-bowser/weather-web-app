@@ -1,6 +1,6 @@
 .WeatherTile {
     width: 200px;
-    aspect-ratio: 1 / 1;
+    max-height: 200px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -8,10 +8,6 @@
     align-items: center;
     text-align: center;
     margin: 10px;
-}
-
-.WeatherTile img {
-    width: 73%;
 }
 
 .WeatherTile p {
