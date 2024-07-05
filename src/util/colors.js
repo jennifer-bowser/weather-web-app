@@ -1,5 +1,6 @@
 const colors = {
     icy_white: "#FAFBFC",
+    partial_snow_white: "#FCFBF5",
     cloudy_gray: "#F2F3F4",
     precip_blue_gray: "#D0D8DC",
     storm_gray: "#B9B9B9",

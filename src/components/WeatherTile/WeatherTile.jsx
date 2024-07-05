@@ -20,11 +20,29 @@ export default function WeatherTile({ id }) {
     // )
 
     const condition = getCondition(id);
+    const tiles = [];
+
+    if (condition && condition.getIcon(condition.IS_DAY)) {
+        tiles.push(
+            <div className="WeatherTile" style={{ backgroundColor: condition.getColor() }} key={`${id}-day`}>
+                <img src={condition.getIcon()} />
+                <p>{condition.getText()}</p>
+            </div>
+        );
+    }
+
+    if (condition && condition.getIcon(!condition.IS_DAY)) {
+        tiles.push(
+            <div className="WeatherTile" style={{ backgroundColor: condition.getColor(!condition.IS_DAY) }} key={`${id}-night`}>
+                <img src={condition.getIcon(!condition.IS_DAY)} />
+                <p style={{ color: condition.getTextColor(!condition.IS_DAY) }}>{condition.getText()}</p>
+            </div>
+        );
+    }
+
     return (
-        condition &&
-        <div className="WeatherTile" style={{ backgroundColor: condition.getColor() }} key={id}>
-            <img src={condition.getIcon()} />
-            <p>{condition.getText()}</p>
-        </div>
+        <>
+            {tiles}
+        </>
     )
 }
