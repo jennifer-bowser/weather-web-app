@@ -16,7 +16,7 @@ const conditions = {
         text: "sunny",
         icon: {
             day: "",
-            night: "",
+            night: null,
         },
         color: colors.sunny_yellow
     },
@@ -46,4 +46,18 @@ const conditions = {
     },
 }
 
-export default conditions;
+/**
+ * @param {String} id        - The condition id
+ * @param {Array} attributes - The condition attributes to return
+ * @returns {Array} - An array of attribute values
+ */
+export default function getConditionAttrs(id, attributes) {
+    const condition = conditions[id];
+
+    const aAttributes = [];
+    attributes.forEach(attributeName => {
+        aAttributes.push(condition[attributeName]);
+    });
+
+    return aAttributes;
+}
