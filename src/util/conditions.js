@@ -1,5 +1,22 @@
 import colors from "./colors";
 
+import clear_day from "../assets/weather_icons/clear_day.svg";
+import clear_night from "../assets/weather_icons/clear_night.svg";
+
+import low_sun_day from "../assets/weather_icons/low_sun_day.svg";
+import low_sun_night from "../assets/weather_icons/low_sun_night.svg";
+
+import mid_sun_day from "../assets/weather_icons/mid_sun_day.svg";
+
+import hazy_day from "../assets/weather_icons/hazy_day.svg";
+import hazy_night from "../assets/weather_icons/hazy_night";
+
+import cloudy_day from "../assets/weather_icons/cloudy_day.svg";
+import cloudy_night from "../assets/weather_icons/cloudy_night.svg";
+
+import rainy_day from "../assets/weather_icons/rainy_day.svg";
+import rainy_night from "../assets/weather_icons/rainy_night/svg";
+
 /**
  * key = id (AccuWeather's "WeatherIcon" number)
  * value = {
@@ -8,56 +25,171 @@ import colors from "./colors";
  *          day: dayIcon,
  *          night: nightIcon
  *      },
- *      color: color (hex code)
+ *      color: {
+ *          day: hex code,
+ *          night: hex code
+ *      }
  * }
  */
 const conditions = {
     1: {
         text: "sunny",
         icon: {
-            day: "",
-            night: null,
+            day: clear_day,
+            night: null
         },
-        color: colors.sunny_yellow
+        color: {
+            day: colors.full_sun_yellow,
+            night: null
+        },
+        linking_word: "and"
     },
     2: {
         text: "mostly sunny",
         icon: {
-            day: "",
-            night: "",
+            day: mid_sun_day,
+            night: null
         },
-        color: colors.mid_sun_yellow
+        color: {
+            day: colors.mid_sun_day,
+            night: null
+        },
+        linking_word: "and"
     },
     3: {
         text: "partly sunny",
         icon: {
-            day: "",
-            night: "",
+            day: mid_sun_day,
+            night: null
         },
-        color: colors.minor_sun_yellow
+        color: {
+            day: colors.mid_sun_day,
+            night: null
+        },
+        linking_word: "and"
     },
     4: {
         text: "intermittent clouds",
         icon: {
-            day: "",
-            night: "",
+            day: mid_sun_day,
+            night: null
         },
-        color: colors.minor_sun_yellow
+        color: {
+            day: colors.mid_sun_day,
+            night: null
+        },
+        linking_word: "and"
     },
+    5: {
+        text: "hazy sunshine",
+        icon: {
+            day: hazy_day,
+            night: null,
+        },
+        color: {
+            day: colors.hazy_brown,
+            night: null
+        },
+        linking_word: "with"
+    },
+    6: {
+        text: "mostly cloudy",
+        icon: {
+            day: low_sun_day,
+            night: null
+        },
+        color: {
+            day: colors.low_sun_yellow,
+            night: null
+        },
+        linking_word: "and"
+    },
+    7: {
+        text: "cloudy",
+        icon: {
+            day: cloudy_day,
+            night: cloudy_night
+        },
+        color: {
+            day: colors.cloudy_gray,
+            night: colors.night_blue
+        },
+        linking_word: "and"
+    },
+    8: {
+        text: "overcast",
+        icon: {
+            day: cloudy_day,
+            night: cloudy_night
+        },
+        color: {
+            day: colors.cloudy_gray,
+            night: colors.night_blue
+        },
+        linking_word: "and"
+    },
+    11: {
+        text: "foggy",
+        icon: {
+            day: hazy_day,
+            night: hazy_night
+        },
+        color: {
+            day: colors.hazy_brown,
+            night: colors.night
+        },
+        linking_word: "and"
+    },
+    12: {
+        text: "showers",
+        icon: {
+            day: rainy_day,
+            night: rainy_night
+        },
+        color: {
+            day: colors.precip_blue_gray,
+            night: colors.night
+        },
+        linking_word: "with"
+    },
+    13: {
+        text: "mostly cloudy with showers",
+        icon: {
+            day: rainy_day,
+            night: rainy_night
+        },
+        color: {
+            day: colors.precip_blue_gray,
+            night: colors.night
+        },
+        linking_word: "and"
+    },
+    14: {
+        text: "partly sunny with showers",
+        icon: {
+            day: low_sun_day,
+            night: hazy_night
+        },
+        color: {
+            day: colors.low_sun_yellow,
+            night: colors.night
+        },
+        linking_word: "and"
+    }
 }
 
-/**
- * @param {String} id        - The condition id
- * @param {Array} attributes - The condition attributes to return
- * @returns {Array} - An array of attribute values
- */
-export default function getConditionAttrs(id, attributes) {
-    const condition = conditions[id];
+export function getConditionText(id) {
+    return conditions[id]["text"];
+}
 
-    const aAttributes = [];
-    attributes.forEach(attributeName => {
-        aAttributes.push(condition[attributeName]);
-    });
+export function getConditionIcon(id, isDay = true) {
+    return conditions[id]["icon"][isDay ? "day" : "night"];
+}
 
-    return aAttributes;
+export function getConditionColor(id, isDay = true) {
+    return conditions[id]["color"][isDay ? "day" : "night"];
+}
+
+export function getLinkingWord(id) {
+    return conditions[id]["linking_word"];
 }
