@@ -18,6 +18,9 @@ import cloud_night from "../assets/weather_icons/cloud_night.svg";
 import haze_day from "../assets/weather_icons/haze_day.svg";
 import haze_night from "../assets/weather_icons/haze_night.svg";
 
+import partial_haze_day from "../assets/weather_icons/partial_haze_day.svg";
+import partial_haze_night from "../assets/weather_icons/partial_haze_night.svg";
+
 import rain_day from "../assets/weather_icons/rain_day.svg";
 import rain_night from "../assets/weather_icons/rain_night.svg";
 
@@ -90,7 +93,7 @@ const conditions = {
     2: new Condition("mostly sunny", mostly_clear_day, null, colors.mostly_clear_yellow, "and"),
     3: new Condition("partly sunny", partly_clear_day, null, colors.partly_clear_yellow, "and"),
     4: new Condition("intermittent clouds", partly_clear_day, null, colors.partly_clear_yellow, "with"),
-    5: new Condition("hazy sunshine", haze_day, null, colors.hazy_brown, "with"),                        /* TODO: new icon */
+    5: new Condition("hazy sunshine", partial_haze_day, null, colors.hazy_brown, "with"),                        /* TODO: new icon */
     6: new Condition("mostly cloudy", mostly_cloudy_day, null, colors.mostly_cloudy_white, "and"),
     7: new Condition("cloudy", cloud_day, cloud_night, colors.cloudy_gray, "and"),
     8: new Condition("overcast", cloud_day, cloud_night, colors.cloudy_gray, "and"),
@@ -118,7 +121,7 @@ const conditions = {
     34: new Condition("mostly clear", null, mostly_clear_night, null, "and"),
     35: new Condition("partly cloudy", null, partly_clear_night, null, "and"),
     36: new Condition("intermittent clouds", null, partly_clear_night, null, "with"),
-    37: new Condition("hazy moonlight", null, haze_night, null, "with"), /* TODO: new icon */
+    37: new Condition("hazy moonlight", null, partial_haze_night, null, "with"), /* TODO: new icon */
     38: new Condition("mostly cloudy", null, mostly_cloudy_night, null, "and"),
     39: new Condition("partly cloudy with showers", null, partial_rain_night, null, "and"),
     40: new Condition("mostly cloudy with showers", null, partial_rain_night, null, "and"),
