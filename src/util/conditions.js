@@ -3,17 +3,20 @@ import colors from "./colors";
 import clear_day from "../assets/weather_icons/clear_day.svg";
 import clear_night from "../assets/weather_icons/clear_night.svg";
 
-import few_clouds_day from "../assets/weather_icons/few_clouds_day.svg";
-import few_clouds_night from "../assets/weather_icons/few_clouds_night.svg";
+import mostly_clear_day from "../assets/weather_icons/mostly_clear_day.svg";
+import mostly_clear_night from "../assets/weather_icons/mostly_clear_night.svg"
 
-import more_clouds_day from "../assets/weather_icons/more_clouds_day.svg";
-import more_clouds_night from "../assets/weather_icons/more_clouds_night.svg";
+import partly_clear_day from "../assets/weather_icons/partly_clear_day.svg";
+import partly_clear_night from "../assets/weather_icons/partly_clear_night.svg"
 
-import haze_day from "../assets/weather_icons/haze_day.svg";
-import haze_night from "../assets/weather_icons/haze_night.svg";
+import mostly_cloudy_day from "../assets/weather_icons/mostly_cloudy_day.svg";
+import mostly_cloudy_night from "../assets/weather_icons/mostly_cloudy_night.svg"
 
 import cloud_day from "../assets/weather_icons/cloud_day.svg";
 import cloud_night from "../assets/weather_icons/cloud_night.svg";
+
+import haze_day from "../assets/weather_icons/haze_day.svg";
+import haze_night from "../assets/weather_icons/haze_night.svg";
 
 import rain_day from "../assets/weather_icons/rain_day.svg";
 import rain_night from "../assets/weather_icons/rain_night.svg";
@@ -81,11 +84,11 @@ export class Condition {
  */
 const conditions = {
     1: new Condition("sunny", clear_day, null, colors.full_sun_yellow, "and"),
-    2: new Condition("mostly sunny", few_clouds_day, null, colors.mid_sun_yellow, "and"),
-    3: new Condition("partly sunny", few_clouds_day, null, colors.mid_sun_yellow, "and"),
-    4: new Condition("intermittent clouds", few_clouds_day, null, colors.mid_sun_yellow, "with"),
+    2: new Condition("mostly sunny", mostly_clear_day, null, colors.mid_sun_yellow, "and"),
+    3: new Condition("partly sunny", partly_clear_day, null, colors.mid_sun_yellow, "and"),
+    4: new Condition("intermittent clouds", partly_clear_day, null, colors.mid_sun_yellow, "with"),
     5: new Condition("hazy sunshine", haze_day, null, colors.hazy_brown, "with"), /* TODO: new icon */
-    6: new Condition("mostly cloudy", more_clouds_day, null, colors.low_sun_yellow, "and"),
+    6: new Condition("mostly cloudy", mostly_cloudy_day, null, colors.low_sun_yellow, "and"),
     7: new Condition("cloudy", cloud_day, cloud_night, colors.cloudy_gray, "and"),
     8: new Condition("overcast", cloud_day, cloud_night, colors.cloudy_gray, "and"),
     11: new Condition("foggy", haze_day, haze_night, colors.hazy_brown, "and"),
@@ -109,11 +112,11 @@ const conditions = {
     31: new Condition("cold", snow_day, snow_night, colors.icy_white, "and"),   /*TODO: new icon (and color?) */
     32: new Condition("windy", wind_day, wind_night, colors.cloudy_gray, "and"),
     33: new Condition("clear", null, clear_night, null, "and"),
-    34: new Condition("mostly clear", null, few_clouds_night, null, "and"),
-    35: new Condition("partly cloudy", null, more_clouds_night, null, "and"),
-    36: new Condition("intermittent clouds", null, few_clouds_night, null, "with"),
+    34: new Condition("mostly clear", null, mostly_clear_night, null, "and"),
+    35: new Condition("partly cloudy", null, partly_clear_night, null, "and"),
+    36: new Condition("intermittent clouds", null, partly_clear_night, null, "with"),
     37: new Condition("hazy moonlight", null, haze_night, null, "with"), /* TODO: new icon */
-    38: new Condition("mostly cloudy", null, more_clouds_night, null, "and"),
+    38: new Condition("mostly cloudy", null, mostly_cloudy_night, null, "and"),
     39: new Condition("partly cloudy with showers", null, partial_rain_night, null, "and"),
     40: new Condition("mostly cloudy with showers", null, partial_rain_night, null, "and"),
     41: new Condition("partly cloudy with thunderstorms", null, thunderstorm_night, null, "and"), /*TODO: new icon (and color?) */
