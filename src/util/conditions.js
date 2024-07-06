@@ -84,11 +84,11 @@ export class Condition {
  */
 const conditions = {
     1: new Condition("sunny", clear_day, null, colors.full_sun_yellow, "and"),
-    2: new Condition("mostly sunny", mostly_clear_day, null, colors.mid_sun_yellow, "and"),
-    3: new Condition("partly sunny", partly_clear_day, null, colors.mid_sun_yellow, "and"),
-    4: new Condition("intermittent clouds", partly_clear_day, null, colors.mid_sun_yellow, "with"),
+    2: new Condition("mostly sunny", mostly_clear_day, null, colors.mostly_clear_yellow, "and"),
+    3: new Condition("partly sunny", partly_clear_day, null, colors.partly_clear_yellow, "and"),
+    4: new Condition("intermittent clouds", partly_clear_day, null, colors.partly_clear_yellow, "with"),
     5: new Condition("hazy sunshine", haze_day, null, colors.hazy_brown, "with"), /* TODO: new icon */
-    6: new Condition("mostly cloudy", mostly_cloudy_day, null, colors.low_sun_yellow, "and"),
+    6: new Condition("mostly cloudy", mostly_cloudy_day, null, colors.mostly_cloudy_white, "and"),
     7: new Condition("cloudy", cloud_day, cloud_night, colors.cloudy_gray, "and"),
     8: new Condition("overcast", cloud_day, cloud_night, colors.cloudy_gray, "and"),
     11: new Condition("foggy", haze_day, haze_night, colors.hazy_brown, "and"),
