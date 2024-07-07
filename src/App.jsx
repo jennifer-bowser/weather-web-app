@@ -5,7 +5,7 @@ export default function App() {
   return (
     <>
       <LocationContext.Provider value="Puyallup">
-        <AppContent backgroundColor={"blue"} />
+        <AppContent />
       </LocationContext.Provider>
     </>
   )
