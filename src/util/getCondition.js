@@ -1,4 +1,5 @@
 import colors from "./colors";
+import Condition from "./Condition";
 
 import clear_day from "../assets/weather_icons/clear_day.svg";
 import clear_night from "../assets/weather_icons/clear_night.svg";
@@ -45,44 +46,11 @@ import sleet_night from "../assets/weather_icons/sleet_night.svg";
 import wind_day from "../assets/weather_icons/wind_day.svg";
 import wind_night from "../assets/weather_icons/wind_night.svg";
 
-export class Condition {
-    IS_DAY = true;
+import hot_day from "../assets/weather_icons/hot_day.svg";
+import hot_night from "../assets/weather_icons/hot_night.svg";
 
-    constructor(text, dayIcon, nightIcon, dayColor, linkingWord) {
-        this.text = text;
-        this.dayIcon = dayIcon;
-        this.nightIcon = nightIcon;
-        this.dayColor = dayColor;
-        this.nightColor = colors.night_blue;
-        this.linkingWord = linkingWord;
-    }
-
-    getText() {
-        return this.text
-    }
-
-    getIcon(isDay = true) {
-        return isDay
-            ? this.dayIcon
-            : this.nightIcon
-    }
-
-    getColor(isDay = true) {
-        return isDay
-            ? this.dayColor
-            : this.nightColor
-    }
-
-    getTextColor(isDay = true) {
-        return isDay
-            ? colors.black
-            : colors.night_outline
-    }
-
-    getLinkingWord() {
-        return this.linkingWord;
-    }
-}
+import cold_day from "../assets/weather_icons/cold_day.svg";
+import cold_night from "../assets/weather_icons/cold_night.svg";
 
 /**
  * key = id (AccuWeather's "WeatherIcon" number)
@@ -93,7 +61,7 @@ const conditions = {
     2: new Condition("mostly sunny", mostly_clear_day, null, colors.mostly_clear_yellow, "and"),
     3: new Condition("partly sunny", partly_clear_day, null, colors.partly_clear_yellow, "and"),
     4: new Condition("intermittent clouds", partly_clear_day, null, colors.partly_clear_yellow, "with"),
-    5: new Condition("hazy sunshine", partial_haze_day, null, colors.hazy_brown, "with"),                        /* TODO: new icon */
+    5: new Condition("hazy sunshine", partial_haze_day, null, colors.hazy_brown, "with"),
     6: new Condition("mostly cloudy", mostly_cloudy_day, null, colors.mostly_cloudy_white, "and"),
     7: new Condition("cloudy", cloud_day, cloud_night, colors.cloudy_gray, "and"),
     8: new Condition("overcast", cloud_day, cloud_night, colors.cloudy_gray, "and"),
@@ -114,14 +82,14 @@ const conditions = {
     25: new Condition("sleet", sleet_day, sleet_night, colors.icy_white, "with"),
     26: new Condition("freezing rain", sleet_day, sleet_night, colors.icy_white, "with"),
     29: new Condition("rain and snow", sleet_day, sleet_night, colors.icy_white, "with"),
-    30: new Condition("hot", clear_day, clear_night, colors.full_sun_yellow, "and"), /*TODO: new icon (and color?) */
-    31: new Condition("cold", snow_day, snow_night, colors.icy_white, "and"),   /*TODO: new icon (and color?) */
+    30: new Condition("hot", hot_day, hot_night, colors.hot_red, "and"),
+    31: new Condition("cold", cold_day, cold_night, colors.cold_blue, "and"),
     32: new Condition("windy", wind_day, wind_night, colors.cloudy_gray, "and"),
     33: new Condition("clear", null, clear_night, null, "and"),
     34: new Condition("mostly clear", null, mostly_clear_night, null, "and"),
     35: new Condition("partly cloudy", null, partly_clear_night, null, "and"),
     36: new Condition("intermittent clouds", null, partly_clear_night, null, "with"),
-    37: new Condition("hazy moonlight", null, partial_haze_night, null, "with"), /* TODO: new icon */
+    37: new Condition("hazy moonlight", null, partial_haze_night, null, "with"),
     38: new Condition("mostly cloudy", null, mostly_cloudy_night, null, "and"),
     39: new Condition("partly cloudy with showers", null, partial_rain_night, null, "and"),
     40: new Condition("mostly cloudy with showers", null, partial_rain_night, null, "and"),

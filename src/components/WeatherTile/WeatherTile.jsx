@@ -1,4 +1,4 @@
-import getCondition from "../../util/conditions";
+import getCondition from "../../util/getCondition";
 import WeatherIcon from "../WeatherIcon/WeatherIcon";
 import "./WeatherTile.css";
 
