@@ -10,6 +10,8 @@ const colors = {
     full_sun_yellow: "#FFE193",
     hazy_brown: "#E3DDD6",
     black: "#000000",
+    hot_red: "#B26C64",
+    cold_blue: "#759FB2",
     night_blue: "#374061",
     night_outline: "#DBD9D5"
 };
