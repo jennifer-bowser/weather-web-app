@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./AppContent.css";
 
-export default function AppContent({ children = null }) {
+export default function AppContent({ children }) {
     const [backgroundColor, setBackgroundColor] = useState("blue");
 
     return (
