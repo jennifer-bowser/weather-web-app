@@ -1,18 +1,16 @@
 import "./CurrentWeather.css";
 import secrets from "../../../secrets";
 import getCondition from "../../util/getCondition";
-import { useContext, useEffect, useState } from "react";
-import LocationContext, { FetchLocationCode } from "../../contexts/LocationContext";
+import { useEffect, useState } from "react";
+import { FetchLocationCode } from "../../contexts/LocationContext";
 
 export default function CurrentWeather() {
     const locationCode = FetchLocationCode();
     const [condition, setCondition] = useState(null);
 
-    console.log(locationCode);
-
+    // TODO: handle error states
     useEffect(() => {
         async function getCurrentCondition(locationCode) {
-            console.log(locationCode);
             const url = `https://dataservice.accuweather.com/currentconditions/v1/${locationCode}?apikey=${secrets["api_key"]}`;
             try {
                 const response = await fetch(url);
@@ -22,8 +20,7 @@ export default function CurrentWeather() {
                 }
 
                 const json = await response.json();
-                const conditionCode = json["WeatherIcon"];
-                // setConditionCode(conditionCode);
+                const conditionCode = json[0]["WeatherIcon"];
 
                 const currentCondition = getCondition(conditionCode);
                 setCondition(currentCondition);
@@ -33,9 +30,13 @@ export default function CurrentWeather() {
             }
         }
 
-        getCurrentCondition();
+        if(locationCode){
+            getCurrentCondition(locationCode);
+        }
 
     }, [locationCode]);
 
-    console.log(condition);
+    return (
+        <div>Test: {condition ? condition.getText() : 'no condition'}</div>
+    )
 }

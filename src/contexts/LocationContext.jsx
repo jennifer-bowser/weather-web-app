@@ -4,15 +4,14 @@ import { useContext, useState, useEffect, createContext } from "react";
 const LocationContext = createContext();
 
 export default function LocationContextProvider({ children }) {
-    // for more complex state you might set up useReducer for Redux-like state updates
-    const [locationCode, setLocationCode] = useState([]);
+    const [locationCode, setLocationCode] = useState(null);
     const location = "Puyallup";
-    const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${secrets["api_key"]}&q=${location}`;
-
+    
     // useEffect is a lifecycle method for function components, run once after mount
     useEffect(() => {
         // the callback to useEffect can't be async, but you can declare async within
         async function fetchData() {
+            const url = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${secrets["api_key"]}&q=${location}`;
             // use the await keyword to grab the resolved promise value
             // remember: await can only be used within async functions!
             try {
@@ -32,7 +31,7 @@ export default function LocationContextProvider({ children }) {
         }
         // fetchData will only run once after mount as the deps array is empty 
         fetchData();
-    }, [url]);
+    }, [location]);
 
     return (
         <LocationContext.Provider
