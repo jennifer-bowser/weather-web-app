@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { FetchLocationCode } from "../../contexts/LocationContext";
 import ConditionText from "../ConditionText/ConditionText";
 import TIMEFRAME_TYPE from "../../util/timeframeType";
+import WeatherIcon from "../WeatherIcon/WeatherIcon";
 
 export default function CurrentWeather() {
     const locationCode = FetchLocationCode();
@@ -45,9 +46,18 @@ export default function CurrentWeather() {
 
     }, [locationCode]);
 
+    const successContent = [
+        <ConditionText timeframe={TIMEFRAME_TYPE.now} condition={condition}/>,
+        <WeatherIcon iconSrc={condition.getIcon()}/>
+    ];
+
+    const errorContent = "Oh no, error!";
+
     return (
-        <div>
-            {condition && <ConditionText timeframe={TIMEFRAME_TYPE.now} condition={condition}/>}
+        <div className="CurrentWeather">
+            <div className="CurrentWeather-ContentBox">
+                {condition ? successContent : errorContent}
+            </div>
         </div>
     )
 }
