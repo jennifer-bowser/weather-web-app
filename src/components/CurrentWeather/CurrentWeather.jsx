@@ -3,6 +3,8 @@ import secrets from "../../../secrets";
 import getCondition from "../../util/getCondition";
 import { useEffect, useState } from "react";
 import { FetchLocationCode } from "../../contexts/LocationContext";
+import ConditionText from "../ConditionText/ConditionText";
+import TIMEFRAME_TYPE from "../../util/timeframeType";
 
 export default function CurrentWeather() {
     const locationCode = FetchLocationCode();
@@ -20,11 +22,16 @@ export default function CurrentWeather() {
                 }
 
                 const json = await response.json();
+
                 const conditionCode = json[0]["WeatherIcon"];
-
-                // const temp = json[0]['Temperature']['Imperial']['Value'];
-
                 const currentCondition = getCondition(conditionCode);
+
+                const temp = json[0]['Temperature']['Imperial']['Value'];
+                currentCondition.setTemp(temp);
+
+                const isDay = json[0]['IsDayTime'];
+                currentCondition.setIsDay(isDay);
+
                 setCondition(currentCondition);
             }
             catch {
@@ -39,6 +46,8 @@ export default function CurrentWeather() {
     }, [locationCode]);
 
     return (
-        <div>Test: {condition ? condition.getText() : 'no condition'}</div>
+        <div>
+            {condition && <ConditionText timeframe={TIMEFRAME_TYPE.now} condition={condition}/>}
+        </div>
     )
 }

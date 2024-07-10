@@ -1,7 +1,9 @@
 import "./ConditionText.css";
+import TIMEFRAME_TYPE from "../../util/timeframeType";
 
 export default function ConditionText({timeframe, condition}){
+    console.log(condition);
     return(
-        <p></p>
+        <p>{timeframe === TIMEFRAME_TYPE.now ? "It's" : "It'll be"} {condition.getTemp()} & {condition.getText()}</p>
     )
 }

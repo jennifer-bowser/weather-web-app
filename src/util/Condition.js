@@ -1,49 +1,63 @@
 import colors from "./colors";
 
 export default class Condition {
-    IS_DAY = true;
-    temp = null;
+    #text;
+    #dayIcon;
+    #nightIcon;
+    #dayColor;
+    #nightColor;
+    #linkingWord;
+    #isDay = true;
+    #temp = null;
 
     constructor(text, dayIcon, nightIcon, dayColor, linkingWord) {
-        this.text = text;
-        this.dayIcon = dayIcon;
-        this.nightIcon = nightIcon;
-        this.dayColor = dayColor;
-        this.nightColor = colors.night_blue;
-        this.linkingWord = linkingWord;
+        this.#text = text;
+        this.#dayIcon = dayIcon;
+        this.#nightIcon = nightIcon;
+        this.#dayColor = dayColor;
+        this.#nightColor = colors.night_blue;
+        this.#linkingWord = linkingWord;
     }
 
     getText() {
-        return this.text
+        return this.#text
     }
 
-    getIcon(isDay = true) {
-        return isDay
-            ? this.dayIcon
-            : this.nightIcon
+    getIcon() {
+        return this.#isDay
+            ? this.#dayIcon
+            : this.#nightIcon
     }
 
-    getColor(isDay = true) {
-        return isDay
-            ? this.dayColor
-            : this.nightColor
+    getColor() {
+        return this.#isDay
+            ? this.#dayColor
+            : this.#nightColor
     }
 
-    getTextColor(isDay = true) {
-        return isDay
+    getTextColor() {
+        return this.#isDay
             ? colors.black
             : colors.night_outline
     }
 
     getLinkingWord() {
-        return this.linkingWord;
+        return this.#linkingWord;
     }
 
     setTemp(temp){
-        this.temp = String(temp) + "°";
+        this.#temp = String(temp) + "°";
     }
 
     getTemp(){
-        return this.temp;
+        return this.#temp;
+    }
+
+    setIsDay(isDay){
+        this.#isDay = isDay;
+    }
+
+    isDay(){
+        return this.#isDay;
     }
 }
