@@ -2,6 +2,7 @@ import colors from "./colors";
 
 export default class Condition {
     IS_DAY = true;
+    temp = null;
 
     constructor(text, dayIcon, nightIcon, dayColor, linkingWord) {
         this.text = text;
@@ -36,5 +37,13 @@ export default class Condition {
 
     getLinkingWord() {
         return this.linkingWord;
+    }
+
+    setTemp(temp){
+        this.temp = String(temp) + "°";
+    }
+
+    getTemp(){
+        return this.temp;
     }
 }

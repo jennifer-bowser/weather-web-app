@@ -22,6 +22,8 @@ export default function CurrentWeather() {
                 const json = await response.json();
                 const conditionCode = json[0]["WeatherIcon"];
 
+                // const temp = json[0]['Temperature']['Imperial']['Value'];
+
                 const currentCondition = getCondition(conditionCode);
                 setCondition(currentCondition);
             }
