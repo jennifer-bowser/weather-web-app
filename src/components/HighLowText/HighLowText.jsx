@@ -8,8 +8,8 @@ export const formats = {
 export default function HighLowText({format, highTemp, lowTemp}){
     return(
         <div className={"HighLowText " + format}>
-            <p><span className="SemiBold">High:</span> {highTemp}°</p>
-            <p><span className="SemiBold">Low:</span> {lowTemp}°</p>
+            <p>High: <span className="SemiBold">{highTemp}°</span></p>
+            <p>Low: <span className="SemiBold">{lowTemp}°</span></p>
         </div>
     )
 }

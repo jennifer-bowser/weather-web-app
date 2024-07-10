@@ -5,8 +5,8 @@
 
 /* Global Vars */
 :root{
-    --font-family-bold: "Stratos", "Helvetica", sans-serif;
-    --font-family-light: "Stratos Lights", "Helvetica", sans-serif;
+    --font-family-bold: stratos, "Helvetica", sans-serif;
+    --font-family-light: stratos-lights, "Helvetica", sans-serif;
 }
 
 /* Defaults */
@@ -16,13 +16,18 @@
 
 body{
     margin: 0 /* ensure a blank slate */;
-    font-family: var(--font-family-bold);
-    font-weight: 400;
+    font-family: var(--font-family-light);
+    font-weight: 200;
     font-size: 12pt;
 }
 
 /* Generic Style Classes */
+.Bold{
+    font-family: var(--font-family-bold);
+    font-weight: 500;
+}
+
 .SemiBold{
     font-family: var(--font-family-bold);
-    font-weight: 600;
+    font-weight: 400;
 }

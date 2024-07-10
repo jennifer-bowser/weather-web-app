@@ -6,6 +6,13 @@
     height: 90vh;
 }
 
+.CurrentWeather-ContentBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .CurrentWeather .ConditionText{
     font-size: 5em;
 }

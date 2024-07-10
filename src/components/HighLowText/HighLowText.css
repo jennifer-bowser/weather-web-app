@@ -13,8 +13,6 @@
 .HighLowText-Horizontal p:first-of-type::after{
     content: "/";
     margin: 0 18px 0 10px;
-    font-family: var(--font-family-light);
-    font-weight: 300;
 }
 
 .HighLowText-Vertical{
