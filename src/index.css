@@ -1,11 +1,22 @@
+/* Ensure a blank slate */
+#root {
+    margin: 0;
+}
+
+/* Global Vars */
+:root{
+    --font-family-bold: "Stratos", "Helvetica", sans-serif;
+    --font-family-light: "Stratos Lights", "Helvetica", sans-serif;
+}
+
+/* Defaults */
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-}
-
-root {
-    margin: 0;
+body{
+    margin: 0 /* ensure a blank slate */;
+    font-family: var(--font-family-bold);
+    font-weight: 400;
+    font-size: 12pt;
 }
