@@ -1,6 +1,6 @@
 const TIMEFRAME_TYPE = {
-    now: "now",
-    future: "future"
+    now: "It's",
+    future: "It'll be"
 }
 
 export default TIMEFRAME_TYPE;
