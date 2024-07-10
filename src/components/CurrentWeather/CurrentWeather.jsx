@@ -6,6 +6,7 @@ import { FetchLocationCode } from "../../contexts/LocationContext";
 import ConditionText from "../ConditionText/ConditionText";
 import TIMEFRAME_TYPE from "../../util/timeframeType";
 import WeatherIcon from "../WeatherIcon/WeatherIcon";
+import HighLowText, {formats} from "../HighLowText/HighLowText";
 
 export default function CurrentWeather() {
     const locationCode = FetchLocationCode();
@@ -47,8 +48,9 @@ export default function CurrentWeather() {
     }, [locationCode]);
 
     const successContent = [
-        <ConditionText timeframe={TIMEFRAME_TYPE.now} condition={condition}/>,
-        <WeatherIcon iconSrc={condition.getIcon()}/>
+        <ConditionText timeframe={TIMEFRAME_TYPE.now} condition={condition} key={0}/>,
+        <WeatherIcon iconSrc={condition.getIcon()} key={1}/>,
+        <HighLowText format={formats.horizontal} highTemp="87" lowTemp="62" key={2}/>,  // TODO: Add actual high/low temps
     ];
 
     const errorContent = "Oh no, error!";

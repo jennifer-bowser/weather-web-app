@@ -20,3 +20,9 @@ body{
     font-weight: 400;
     font-size: 12pt;
 }
+
+/* Generic Style Classes */
+.SemiBold{
+    font-family: var(--font-family-bold);
+    font-weight: 600;
+}

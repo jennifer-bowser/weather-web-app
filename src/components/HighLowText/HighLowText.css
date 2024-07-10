@@ -1,0 +1,23 @@
+.HighLowText{
+    margin: 0;
+    line-height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.HighLowText p{
+    margin: 0;
+}
+
+.HighLowText-Horizontal p:first-of-type::after{
+    content: "/";
+    margin: 0 18px 0 10px;
+    font-family: var(--font-family-light);
+    font-weight: 300;
+}
+
+.HighLowText-Vertical{
+    flex-direction: column;
+    gap: 10px;
+}
