@@ -1,4 +1,4 @@
-.CurrentWeather{
+.CurrentWeather {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,22 +6,40 @@
     height: 90vh;
 }
 
-.CurrentWeather-ContentBox{
+.CurrentWeather-ContentBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.CurrentWeather .ConditionText{
+.CurrentWeather .ConditionText,
+.CurrentWeather-DefaultText {
     font-size: 5em;
+    text-align: center;
 }
 
-.CurrentWeather .WeatherIcon{
-    width: 500px;
-    margin: 100px 0;
+.CurrentWeather .WeatherIcon {
+    height: 300px;
+    width: 400px;
+    margin: 75px 0;
 }
 
-.CurrentWeather .HighLowText{
+.CurrentWeather .HighLowText {
     font-size: 2em;
+}
+
+.CurrentWeather-ErrorText {
+    font-size: 3em;
+}
+
+.CurrentWeather-DefaultText,
+.CurrentWeather-ErrorText {
+    line-height: 1.5em;
+    margin: 0;
+}
+
+.CurrentWeather-DefaultText~.WeatherIcon,
+.CurrentWeather-DefaultText~.HighLowText {
+    opacity: 0.25;
 }
