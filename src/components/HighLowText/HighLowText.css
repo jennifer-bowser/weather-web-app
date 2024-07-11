@@ -10,12 +10,12 @@
     margin: 0;
 }
 
-.HighLowText .Horizontal p:first-of-type::after {
+.HighLowText.Horizontal p:first-of-type::after {
     content: "/";
     margin: 0 18px 0 10px;
 }
 
-.HighLowText .Vertical {
+.HighLowText.Vertical {
     flex-direction: column;
     gap: 10px;
 }
