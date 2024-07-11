@@ -10,15 +10,14 @@
     --font-family-light: stratos-lights, "Helvetica", sans-serif;
 
     /* Colors */
-    --soft-black: rgb(44, 44, 44);
-    --soft-white: rgb(255, 247, 244);
+    /* --soft-black: rgb(44, 44, 44); */
+    --soft-white: rgb(255, 241, 236);
 
     /* Borders */
     --border-radius: 10px;
-    --border: 2px solid var(--soft-black);
-
+    --border: 2px solid black;
     /* DropShadow */
-    --box-shadow: 10px 10px 0 var(--soft-black);
+    --box-shadow: 10px 10px 0 black;
 }
 
 /* Defaults */
