@@ -1,9 +1,9 @@
-import "./HourlyForecast.css";
+import "./DailyForecast.css";
 import SectionTile from "../../molecules/SectionTile";
 
 export default function HourlyForecast(){
     return(
-        <SectionTile extraClassnames="HourlyForecast" sectionName="Hourly Forecast">
+        <SectionTile extraClassnames="DailyForecast" sectionName="Daily Forecast">
         </SectionTile>
     )
 }

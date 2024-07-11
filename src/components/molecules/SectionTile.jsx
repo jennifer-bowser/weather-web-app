@@ -1,10 +1,13 @@
-import Tile from "../atoms/Tile/Tile";
 import "./SectionTile.css";
+import Tile from "../atoms/Tile/Tile";
 
-export default function SectionTile({extraClassnames = "", children}){
+export default function SectionTile({extraClassnames = "", sectionName, children}){
     return(
         <Tile extraClassnames={"SectionTile " + extraClassnames}>
-            {children}    
+            <h1>{sectionName}</h1>
+            <div className="SectionTile-Content">
+                {children}    
+            </div>
         </Tile>
     );
 }

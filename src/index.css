@@ -33,6 +33,11 @@ body{
     font-size: 12pt;
 }
 
+h1{
+    font-family: var(--font-family-bold);
+    font-weight: 600;
+}
+
 /* Generic Style Classes */
 .Bold{
     font-family: var(--font-family-bold);
