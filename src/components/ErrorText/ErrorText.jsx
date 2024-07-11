@@ -1,5 +1,6 @@
 export default function ErrorText({ locationCode }) {
     const getText = (locationCode) => {
+        console.log(locationCode);
         let content = "";
         if (locationCode) {
             content = "Hmm, looks like we're having issues. Try again later!"

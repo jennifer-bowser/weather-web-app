@@ -7,6 +7,7 @@ import ConditionText from "../../ConditionText/ConditionText";
 import TIMEFRAME_TYPE from "../../../util/timeframeType";
 import WeatherIcon from "../../WeatherIcon/WeatherIcon";
 import HighLowText, { formats } from "../../HighLowText/HighLowText";
+import ErrorText from "../../ErrorText/ErrorText";
 
 export default function CurrentWeather() {
     const locationCode = FetchLocationCode();
@@ -57,7 +58,7 @@ export default function CurrentWeather() {
             ];
         }
         else {
-            content = "Oh no, error!";
+            content = <ErrorText condition={locationCode} />
         }
 
         return content;
