@@ -4,9 +4,9 @@ import getCondition from "../../../util/getCondition";
 import { useEffect, useState } from "react";
 import { FetchLocationCode } from "../../../contexts/LocationContext";
 import ConditionText from "../../ConditionText/ConditionText";
-import TIMEFRAME_TYPE from "../../../util/timeframeType";
+import { TIMEFRAME_TYPE, FORMATS } from "../../../util/enums";
 import WeatherIcon from "../../WeatherIcon/WeatherIcon";
-import HighLowText, { formats } from "../../HighLowText/HighLowText";
+import HighLowText from "../../HighLowText/HighLowText";
 import error_icon from "../../../assets/error_icon.svg";
 
 export default function CurrentWeather() {
@@ -54,7 +54,7 @@ export default function CurrentWeather() {
             content = [
                 <ConditionText timeframe={TIMEFRAME_TYPE.now} condition={condition} key={0} />,
                 <WeatherIcon iconSrc={condition.getIcon()} key={1} />,
-                <HighLowText format={formats.horizontal} highTemp="87" lowTemp="62" key={2} />  // TODO: Add actual high/low temps
+                <HighLowText format={FORMATS.horizontal} highTemp="87" lowTemp="62" key={2} />  // TODO: Add actual high/low temps
             ];
         }
         else if (locationCode) {
@@ -62,7 +62,7 @@ export default function CurrentWeather() {
             content = [
                 <p className="CurrentWeather-DefaultText" key={0}>Tell us where you&apos;re at</p>,
                 <WeatherIcon iconSrc={condition.getIcon()} key={1} />,
-                <HighLowText format={formats.horizontal} highTemp={null} lowTemp={null} key={2} />
+                <HighLowText format={FORMATS.horizontal} highTemp={null} lowTemp={null} key={2} />
             ];
         }
         else {
