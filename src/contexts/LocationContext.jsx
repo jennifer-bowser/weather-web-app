@@ -7,6 +7,7 @@ export default function LocationContextProvider({ children }) {
     const [locationCode, setLocationCode] = useState(null);
     const location = "Puyallup";
     
+    
     // useEffect is a lifecycle method for function components, run once after mount
     useEffect(() => {
         // the callback to useEffect can't be async, but you can declare async within
@@ -30,8 +31,10 @@ export default function LocationContextProvider({ children }) {
             }
         }
         // fetchData will only run once after mount as the deps array is empty 
-        fetchData();
+        // fetchData();
+        setLocationCode("341343"); // FOR DEVELOPMENT
     }, [location]);
+    
 
     return (
         <LocationContext.Provider

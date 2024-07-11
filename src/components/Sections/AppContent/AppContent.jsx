@@ -1,13 +1,13 @@
-import { useState } from "react";
-import colors from "../../../util/colors";
 import "./AppContent.css";
+import colors from "../../../util/colors";
+import { FetchCurrentCondition } from "../../../contexts/CurrentConditionContext";
 
 export default function AppContent({ children }) {
-    const defaultColor = colors.mostly_cloudy_white
-    const [backgroundColor, setBackgroundColor] = useState({ defaultColor });
-
+    const defaultColor = colors.mostly_cloudy_white;
+    const condition = FetchCurrentCondition();
+    
     return (
-        <div className="AppContent" style={{ backgroundColor: backgroundColor }}>
+        <div className="AppContent" style={{ backgroundColor: condition ? condition.getColor() : defaultColor }}>
             {children}
         </div>
     )
