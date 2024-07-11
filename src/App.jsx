@@ -1,8 +1,8 @@
-import AppContent from "./components/AppContent/AppContent";
-import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
 import LocationContextProvider from "./contexts/LocationContext";
-export default function App() {
+import AppContent from "./components/sections/AppContent/AppContent";
+import CurrentWeather from "./components/sections/CurrentWeather/CurrentWeather";
 
+export default function App() {
   return (
     <>
       <LocationContextProvider>
