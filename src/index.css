@@ -5,8 +5,20 @@
 
 /* Global Vars */
 :root{
+    /* Fonts */
     --font-family-bold: stratos, "Helvetica", sans-serif;
     --font-family-light: stratos-lights, "Helvetica", sans-serif;
+
+    /* Colors */
+    --soft-black: rgb(44, 44, 44);
+    --soft-white: rgb(255, 247, 244);
+
+    /* Borders */
+    --border-radius: 10px;
+    --border: 2px solid var(--soft-black);
+
+    /* DropShadow */
+    --box-shadow: 10px 10px 0 var(--soft-black);
 }
 
 /* Defaults */
