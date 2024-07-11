@@ -32,7 +32,7 @@ export default function LocationContextProvider({ children }) {
         }
         // fetchData will only run once after mount as the deps array is empty 
         // fetchData();
-        setLocationCode("341343"); // FOR DEVELOPMENT
+        setLocationCode("341343"); // TODO: Fetch real data in prod
     }, [location]);
     
 

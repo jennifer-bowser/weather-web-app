@@ -39,7 +39,14 @@ export default function CurrentConditionContextProvider({ children }) {
         }
 
         if (locationCode) {
-            getCurrentCondition(locationCode);
+            // getCurrentCondition(locationCode);
+
+            // TODO: Fetch real data in prod
+            const tempCondition = getCondition(1);
+            tempCondition.setTemp(68);
+            tempCondition.setIsDay(true);
+
+            setCondition(tempCondition);
         }
 
     }, [locationCode]);
