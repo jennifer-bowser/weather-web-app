@@ -1,14 +1,12 @@
 import "./CurrentWeather.css";
-import secrets from "../../../../secrets";
-import getCondition from "../../../util/getCondition";
-import { useEffect, useState } from "react";
 import { FetchLocationCode } from "../../../contexts/LocationContext";
-import ConditionText from "../../ConditionText/ConditionText";
-import { TIMEFRAME_TYPE, FORMATS } from "../../../util/enums";
-import WeatherIcon from "../../WeatherIcon/WeatherIcon";
-import HighLowText from "../../HighLowText/HighLowText";
-import error_icon from "../../../assets/error_icon.svg";
 import { FetchCurrentCondition } from "../../../contexts/CurrentConditionContext";
+import { TIMEFRAME_TYPE, FORMATS } from "../../../util/enums";
+import getCondition from "../../../util/getCondition";
+import error_icon from "../../../assets/error_icon.svg";
+import ConditionText from "../../atoms/ConditionText/ConditionText";
+import WeatherIcon from "../../atoms/WeatherIcon/WeatherIcon";
+import HighLowText from "../../atoms/HighLowText/HighLowText";
 
 export default function CurrentWeather() {
     const locationCode = FetchLocationCode();
