@@ -2,6 +2,7 @@ import secrets from "../../secrets.js";
 import { useContext, useState, useEffect, createContext } from "react";
 import { FetchLocationCode } from "./LocationContext.jsx";
 import getCondition from "../util/getCondition.js";
+import fetchData from "../util/fetchData.js";
 
 const CurrentConditonContext = createContext();
 
@@ -11,45 +12,32 @@ export default function CurrentConditionContextProvider({ children }) {
 
     // TODO: handle error states
     useEffect(() => {
-        async function getCurrentCondition(locationCode) {
-            const url = `https://dataservice.accuweather.com/currentconditions/v1/${locationCode}?apikey=${secrets["api_key"]}`;
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    // throw new Error(`Response status: ${response.status}`);
-                    console.log(`Response status: ${response.status}`);
-                }
-
-                const json = await response.json();
-
-                const conditionCode = json[0]["WeatherIcon"];
-                const condition = getCondition(conditionCode);
-
-                const temp = json[0]['Temperature']['Imperial']['Value'];
-                condition.setTemp(temp);
-
-                const isDay = json[0]['IsDayTime'];
-                condition.setIsDay(isDay);
-
-                setCondition(condition);
-            }
-            catch {
-                console.log("Oh no, error!");
-            }
-        }
+        const url = `https://dataservice.accuweather.com/currentconditions/v1/${locationCode}?`;
 
         if (locationCode) {
-            // getCurrentCondition(locationCode);
+            // fetchData(url, processData);
 
             // TODO: Fetch real data in prod
             const tempCondition = getCondition(1);
             tempCondition.setTemp(68);
             tempCondition.setIsDay(true);
-
             setCondition(tempCondition);
         }
 
     }, [locationCode]);
+
+    const processData = (json) => {
+        const conditionCode = json[0]["WeatherIcon"];
+        const condition = getCondition(conditionCode);
+
+        const temp = json[0]["Temperature"]["Imperial"]["Value"];
+        condition.setTemp(temp);
+
+        const isDay = json[0]["IsDayTime"];
+        condition.setIsDay(isDay);
+
+        setCondition(condition);
+    }
 
     return (
         <CurrentConditonContext.Provider
