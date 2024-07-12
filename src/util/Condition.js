@@ -9,6 +9,8 @@ export default class Condition {
     #linkingWord;
     #isDay = true;
     #temp = null;
+    #time = null;
+    #percentPrecip = null;
 
     constructor(text, dayIcon, nightIcon, dayColor, linkingWord) {
         this.#text = text;
@@ -45,19 +47,35 @@ export default class Condition {
         return this.#linkingWord;
     }
 
-    setTemp(temp){
+    setTemp(temp) {
         this.#temp = String(temp) + "°";
     }
 
-    getTemp(){
+    getTemp() {
         return this.#temp;
     }
 
-    setIsDay(isDay){
+    setIsDay(isDay) {
         this.#isDay = isDay;
     }
 
-    isDay(){
+    isDay() {
         return this.#isDay;
+    }
+
+    setTime(time) {
+        this.#time = time;
+    }
+
+    getTime() {
+        return this.#time;
+    }
+
+    setPercentPrecip(percentPrecip) {
+        this.#percentPrecip = percentPrecip;
+    }
+
+    getPercentPrecip() {
+        return this.#percentPrecip;
     }
 }

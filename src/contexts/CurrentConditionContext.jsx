@@ -52,8 +52,8 @@ export default function CurrentConditionContextProvider({ children }) {
 // Create a hook to use the APIContext, this is a Kent C. Dodds pattern
 export function FetchCurrentCondition() {
     const context = useContext(CurrentConditonContext);
-    if (context === undefined) {
-        throw new Error("Context must be used within a Provider");
-    }
+    // if (context === undefined) {
+    //     throw new Error("Context must be used within a Provider");
+    // }
     return context;
 }
