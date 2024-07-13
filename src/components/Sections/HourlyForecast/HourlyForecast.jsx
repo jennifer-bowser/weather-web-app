@@ -4,19 +4,22 @@ import fetchData from "../../../util/fetchData";
 import { FetchLocationCode } from "../../../contexts/LocationContext";
 import getCondition from "../../../util/getCondition";
 import SectionTile from "../../molecules/SectionTile";
-import Tile from "../../atoms/Tile/Tile";
-import WeatherIcon from "../../atoms/WeatherIcon/WeatherIcon";
+import { setCookie, getCookie } from "../../../util/cookies";
 
 export default function HourlyForecast() {
     const locationCode = FetchLocationCode();
     const [hourlyConditions, setHourlyConditions] = useState(null);
 
     useEffect(() => {
-        if (locationCode) {
+        // const hourlyConditionsCookie = getCookie("hourlyConditions");
+        // if (hourlyConditionsCookie) {
+            // setHourlyConditions(JSON.parse(hourlyConditionsCookie));
+        // }
+        /*else*/ if (locationCode && !hourlyConditions) {
             const url = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationCode}?`;
             fetchData(url, processData);
         }
-    }, [locationCode]);
+    }, [locationCode, hourlyConditions]);
 
     const processData = (json) => {
         const hourlyConditions = [];
@@ -43,20 +46,20 @@ export default function HourlyForecast() {
         }
 
         setHourlyConditions(hourlyConditions);
+        setCookie("hourlyConditions", hourlyConditions);
     }
 
     return (
         <SectionTile extraClassnames="HourlyForecast" sectionName="Hourly Forecast">
-            {hourlyConditions && hourlyConditions.map((condition, index) => {
+            {hourlyConditions && hourlyConditions.map((condition, index) => (
                 <div key={index}>
-                    <h2>{condition.getTime()}</h2>
-                    <Tile>
-                        <WeatherIcon iconSrc={condition.getIcon()} />
-                        <p>Temp: {condition.getTemp()}</p>
-                        <p>% precip: {condition.getPercentPrecip()}%</p>
-                    </Tile>
+                    <p>Time: {condition.getTime()}</p>
+                    <img src={condition.getIcon()} style={{ width: 50 }} />
+                    <p>Condition: {condition.getText()}</p>
+                    <p>Temp: {condition.getTemp()}</p>
+                    <p>Percent Precip: {condition.getPercentPrecip()}</p>
                 </div>
-            })}
+            ))}
         </SectionTile>
     )
 }

@@ -1,6 +1,7 @@
 import colors from "./colors";
 
 export default class Condition {
+    #id;
     #text;
     #dayIcon;
     #nightIcon;
@@ -12,13 +13,18 @@ export default class Condition {
     #time = null;
     #percentPrecip = null;
 
-    constructor(text, dayIcon, nightIcon, dayColor, linkingWord) {
+    constructor(id, text, dayIcon, nightIcon, dayColor, linkingWord) {
+        this.#id = id;
         this.#text = text;
         this.#dayIcon = dayIcon;
         this.#nightIcon = nightIcon;
         this.#dayColor = dayColor;
         this.#nightColor = colors.night_blue;
         this.#linkingWord = linkingWord;
+    }
+
+    getId() {
+        return this.#id;
     }
 
     getText() {

@@ -1,4 +1,4 @@
-.SectionTile{
+.SectionTile {
     width: 100%;
     background-color: var(--soft-white);
     border-radius: var(--border-radius);
@@ -8,7 +8,11 @@
     margin-bottom: 100px;
 }
 
-.SectionTile h1{
+.SectionTile h1 {
     margin: 0;
     line-height: 1em;
+}
+
+.SectionTile-Content {
+    width: 100%;
 }
