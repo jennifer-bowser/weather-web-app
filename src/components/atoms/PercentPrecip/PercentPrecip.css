@@ -1,0 +1,14 @@
+.PercentPrecip{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PercentPrecip img{
+    height: 1em;
+}
+
+.PercentPrecip p{
+    margin: 0;
+    line-height: 1em;
+}

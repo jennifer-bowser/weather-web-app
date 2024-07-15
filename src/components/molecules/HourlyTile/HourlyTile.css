@@ -37,6 +37,10 @@
     grid-area: a
 }
 
+.HourlyTile-Label p{
+    margin: 0;
+}
+
 .HourlyTile-Label{
     font-size: 1.75em;
     font-weight: 300;
