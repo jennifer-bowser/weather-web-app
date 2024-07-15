@@ -1,9 +1,57 @@
-.HourlyTile{
+.HourlyTile {
+    --padding: 20px;
+
     display: flex;
     flex-direction: column;
-    width: 200px;
 }
 
-.HourlyTile .WeatherIcon{
+.HourlyTile .Tile {
+    padding: var(--padding);
+    width: 250px;
+    height: 250px;
+    display: grid;
+    grid-template-areas:
+        "a a"
+        "b c";
+    grid-template-rows: 3fr 1.25fr;
+    grid-template-columns: 0.6fr 1fr;
+    gap: 0px;
+}
+
+.HourlyTile-Time {
+    margin: 0;
+    line-height: 1em;
+}
+
+.HourlyTile-Time {
+    font-family: var(--font-family-bold);
+    font-size: 1.75em;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+}
+
+.HourlyTile .WeatherIcon {
     width: 100%;
+    padding-bottom: var(--padding);
+    border-bottom: var(--border);
+    grid-area: a
+}
+
+.HourlyTile-Label{
+    font-size: 1.75em;
+    font-weight: 300;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HourlyTile-Label:first-of-type{
+    grid-area: b;
+}
+
+.HourlyTile-Label:last-of-type{
+    border-left: var(--border);
+    grid-area: c;
 }

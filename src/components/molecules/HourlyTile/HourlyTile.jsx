@@ -5,13 +5,11 @@ import WeatherIcon from "../../atoms/WeatherIcon/WeatherIcon";
 export default function HourlyTile({condition}){
     return(
         <div className="HourlyTile">
-            <p>{condition.getTime()}</p>
+            <h2 className="HourlyTile-Time">{condition.getTime()}</h2>
             <Tile useBoxShadow={true}>
                 <WeatherIcon iconSrc={condition.getIcon()} />
-                <div>
-                    <p>{condition.getTemp()}</p>
-                    <p>{condition.getPercentPrecip()}</p>
-                </div>
+                <div className="HourlyTile-Label">{condition.getTemp()}</div>
+                <div className="HourlyTile-Label">{condition.getPercentPrecip()}%</div>
             </Tile>
         </div>
     )
