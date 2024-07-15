@@ -1,4 +1,3 @@
-import secrets from "../../secrets.js";
 import { useContext, useState, useEffect, createContext } from "react";
 import { FetchLocationCode } from "./LocationContext.jsx";
 import getCondition from "../util/getCondition.js";
