@@ -15,11 +15,11 @@ export default function HourlyForecast() {
         if (hourlyConditionsCookie) {
             setHourlyConditions(hourlyConditionsCookie);
         }
-        else if (locationCode && !hourlyConditions) {
+        else if (locationCode) {
             const url = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationCode}?`;
             fetchData(url, processData);
         }
-    }, [locationCode, hourlyConditions]);
+    }, [locationCode]);
 
     const processData = (json) => {
         const hourlyConditions = [];

@@ -3,6 +3,8 @@ import { useContext, useState, useEffect, createContext } from "react";
 import { FetchLocationCode } from "./LocationContext.jsx";
 import getCondition from "../util/getCondition.js";
 import fetchData from "../util/fetchData.js";
+import { setCookie, getCookie } from "../util/cookies.js";
+
 
 const CurrentConditonContext = createContext();
 
@@ -12,16 +14,13 @@ export default function CurrentConditionContextProvider({ children }) {
 
     // TODO: handle error states
     useEffect(() => {
-        const url = `https://dataservice.accuweather.com/currentconditions/v1/${locationCode}?`;
-
-        if (locationCode) {
-            // fetchData(url, processData);
-
-            // TODO: Fetch real data in prod
-            const tempCondition = getCondition(1);
-            tempCondition.setTemp(68);
-            tempCondition.setIsDay(true);
-            setCondition(tempCondition);
+        const currentConditionCookie = getCookie("currentCondition");
+        if (currentConditionCookie) {
+            setCondition(currentConditionCookie);
+        }
+        else if (locationCode) {
+            const url = `https://dataservice.accuweather.com/currentconditions/v1/${locationCode}?`;
+            fetchData(url, processData);
         }
 
     }, [locationCode]);
@@ -37,6 +36,7 @@ export default function CurrentConditionContextProvider({ children }) {
         condition.setIsDay(isDay);
 
         setCondition(condition);
+        setCookie("currentCondition", condition);
     }
 
     return (

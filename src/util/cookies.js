@@ -18,22 +18,23 @@ export function getCookie(key) {
     }
     else {
         return Array.isArray(keyCookie)
-            ? parseCondition
-            : parseConditions;
+            ? parseConditions(keyCookie)
+            : parseCondition(keyCookie);
     }
 }
 
 function explodeCookies(cookies) {
-    const values = [];
+    const values = {};
 
     // cookies come in the form of a string: 
     // "cookie1 = value1; cookie2 = value2 ..."
-    const cookiesArray = cookies.split(";");
+    const cookiesArray = cookies.split("; ");
 
     cookiesArray.forEach(cookie => {
+        const key = cookie.slice(0, cookie.indexOf("="));
         const rawValue = cookie.slice(cookie.indexOf("=") + 1);
         const valueObject = JSON.parse(rawValue);
-        values.push(valueObject);
+        values[key] = valueObject;
     });
 
     return values;
@@ -41,12 +42,12 @@ function explodeCookies(cookies) {
 
 function stringifyValue(value) {
     const preppedValue = Array.isArray(value)
-        ? preprocessCondtions(value)
+        ? preprocessConditions(value)
         : preprocessCondition(value);
     return JSON.stringify(preppedValue);
 }
 
-function preprocessCondtions(conditionsArray) {
+function preprocessConditions(conditionsArray) {
     const jsonArray = [];
     conditionsArray.forEach((condition) => {
         jsonArray.push(preprocessCondition(condition));
@@ -73,8 +74,8 @@ function parseConditions(conditionObjArray) {
 
 function parseCondition(conditionObj) {
     const condition = getCondition(conditionObj["id"]);
-    condition.setTime(jsonObject["time"]);
-    condition.setTemp(jsonObject["temp"]);
-    condition.setPercentPrecip(jsonObject["percentPrecip"]);
+    condition.setTime(conditionObj["time"]);
+    condition.setTemp(conditionObj["temp"]);
+    condition.setPercentPrecip(conditionObj["percentPrecip"]);
     return condition;
 }

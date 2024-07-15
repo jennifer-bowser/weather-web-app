@@ -18,7 +18,7 @@ export default function CurrentWeather() {
             content = [
                 <ConditionText timeframe={TIMEFRAME_TYPE.now} condition={condition} key={0} />,
                 <WeatherIcon iconSrc={condition.getIcon()} key={1} />,
-                <HighLowText format={FORMATS.horizontal} highTemp="87" lowTemp="62" key={2} />  // TODO: Add actual high/low temps
+                <HighLowText format={FORMATS.horizontal} highTemp="87°" lowTemp="62°" key={2} />  // TODO: Add actual high/low temps
             ];
         }
         else if (!locationCode) {
