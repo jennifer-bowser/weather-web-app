@@ -11,11 +11,11 @@ export default function HourlyForecast() {
     const [hourlyConditions, setHourlyConditions] = useState(null);
 
     useEffect(() => {
-        // const hourlyConditionsCookie = getCookie("hourlyConditions");
-        // if (hourlyConditionsCookie) {
-            // setHourlyConditions(JSON.parse(hourlyConditionsCookie));
-        // }
-        /*else*/ if (locationCode && !hourlyConditions) {
+        const hourlyConditionsCookie = getCookie("hourlyConditions");
+        if (hourlyConditionsCookie) {
+            setHourlyConditions(hourlyConditionsCookie);
+        }
+        else if (locationCode && !hourlyConditions) {
             const url = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationCode}?`;
             fetchData(url, processData);
         }

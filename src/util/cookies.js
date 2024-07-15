@@ -7,13 +7,23 @@ export function setCookie(key, condition) {
 export function getCookie(key) {
     const cookiesString = document.cookie;
 
+    let keyCookie = null;
     if (cookiesString) {
-        const cookiesObj = parseCookies(cookiesString);
-        return cookiesObj[key] ?? null;
+        const cookiesObj = explodeCookies(cookiesString);
+        keyCookie = cookiesObj[key] ?? null;
+    }
+
+    if (!keyCookie) {
+        return null;
+    }
+    else {
+        return Array.isArray(keyCookie)
+            ? parseCondition
+            : parseConditions;
     }
 }
 
-function parseCookies(cookies) {
+function explodeCookies(cookies) {
     const values = [];
 
     // cookies come in the form of a string: 
@@ -21,31 +31,30 @@ function parseCookies(cookies) {
     const cookiesArray = cookies.split(";");
 
     cookiesArray.forEach(cookie => {
-        const value = cookie.slice(cookie.indexOf("="));
-        const condition = parseCondition(value);
-        values.push(condition);
+        const rawValue = cookie.slice(cookie.indexOf("=") + 1);
+        const valueObject = JSON.parse(rawValue);
+        values.push(valueObject);
     });
 
     return values;
 }
 
 function stringifyValue(value) {
-    const preppedValue = typeof value === "object"
-        ? stringifyConditions(value)
-        : stringifyCondition(value);
+    const preppedValue = Array.isArray(value)
+        ? preprocessCondtions(value)
+        : preprocessCondition(value);
     return JSON.stringify(preppedValue);
 }
 
-function stringifyConditions(conditionsArray) {
+function preprocessCondtions(conditionsArray) {
     const jsonArray = [];
     conditionsArray.forEach((condition) => {
-        jsonArray.push(stringifyCondition(condition));
+        jsonArray.push(preprocessCondition(condition));
     });
-    console.log(jsonArray);
     return jsonArray;
 }
 
-function stringifyCondition(condition) {
+function preprocessCondition(condition) {
     const jsonObj = {};
     jsonObj["id"] = condition.getId();
     jsonObj["time"] = condition.getTime();
@@ -54,9 +63,16 @@ function stringifyCondition(condition) {
     return jsonObj;
 }
 
-function parseCondition(jsonString) {
-    const jsonObject = JSON.parse(jsonString);
-    const condition = getCondition(jsonObject["id"]);
+function parseConditions(conditionObjArray) {
+    const parsedConditions = [];
+    conditionObjArray.forEach((condition) => {
+        parsedConditions.push(parseCondition(condition));
+    });
+    return parsedConditions;
+}
+
+function parseCondition(conditionObj) {
+    const condition = getCondition(conditionObj["id"]);
     condition.setTime(jsonObject["time"]);
     condition.setTemp(jsonObject["temp"]);
     condition.setPercentPrecip(jsonObject["percentPrecip"]);
