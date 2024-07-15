@@ -1,0 +1,9 @@
+.HourlyTile{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.HourlyTile .WeatherIcon{
+    width: 100%;
+}

@@ -1,6 +1,11 @@
-export default function Tile({extraClassnames = "", children}){
+import "./Tile.css";
+
+export default function Tile({extraClassnames = "", useBoxShadow = false, children}){
+    const classNames = "Tile " + extraClassnames + (
+        useBoxShadow ? "BoxShadowed" : ""
+    );
     return(
-        <div className={`Tile ` + extraClassnames}>
+        <div className={classNames}>
             {children}
         </div>
     )

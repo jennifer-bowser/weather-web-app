@@ -13,7 +13,7 @@ export default function CurrentWeather() {
     const condition = FetchCurrentCondition();
 
     const getContent = (condition) => {
-        let content = null;
+        let content = null; 
         if (condition) {
             content = [
                 <ConditionText timeframe={TIMEFRAME_TYPE.now} condition={condition} key={0} />,

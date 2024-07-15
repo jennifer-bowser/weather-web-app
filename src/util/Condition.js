@@ -54,7 +54,7 @@ export default class Condition {
     }
 
     setTemp(temp) {
-        this.#temp = String(temp);
+        this.#temp = String(temp) + "°";
     }
 
     getTemp() {

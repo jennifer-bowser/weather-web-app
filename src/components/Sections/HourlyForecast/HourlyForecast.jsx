@@ -5,6 +5,7 @@ import { FetchLocationCode } from "../../../contexts/LocationContext";
 import getCondition from "../../../util/getCondition";
 import SectionTile from "../../molecules/SectionTile";
 import { setCookie, getCookie } from "../../../util/cookies";
+import HourlyTile from "../../molecules/HourlyTile/HourlyTile";
 
 export default function HourlyForecast() {
     const locationCode = FetchLocationCode();
@@ -52,13 +53,7 @@ export default function HourlyForecast() {
     return (
         <SectionTile extraClassnames="HourlyForecast" sectionName="Hourly Forecast">
             {hourlyConditions && hourlyConditions.map((condition, index) => (
-                <div key={index}>
-                    <p>Time: {condition.getTime()}</p>
-                    <img src={condition.getIcon()} style={{ width: 50 }} />
-                    <p>Condition: {condition.getText()}</p>
-                    <p>Temp: {condition.getTemp()}</p>
-                    <p>Percent Precip: {condition.getPercentPrecip()}</p>
-                </div>
+                <HourlyTile condition={condition} key={index}/>
             ))}
         </SectionTile>
     )
