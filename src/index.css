@@ -35,6 +35,7 @@ body{
 h1{
     font-family: var(--font-family-bold);
     font-weight: 600;
+    font-size: 2.25em;
 }
 
 /* Generic Style Classes */

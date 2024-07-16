@@ -1,7 +1,16 @@
 .ConditionText{
     margin: 0;
+    font-weight: 200;
+}
+
+.ConditionText-Small{
+    font-size: 0.65em;
+}
+
+.ConditionText-Small:first-of-type{
+    margin-right: 0.25em;
 }
 
 .ConditionText-LinkingWord{
-    margin: 0 1.1rem 0 0.75rem;
+    margin: 0 1.5rem 0 0.7rem;
 }
