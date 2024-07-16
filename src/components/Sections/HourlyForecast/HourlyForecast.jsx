@@ -6,6 +6,7 @@ import getCondition from "../../../util/getCondition";
 import SectionTile from "../../molecules/SectionTile";
 import { setCookie, getCookie } from "../../../util/cookies";
 import HourlyTile from "../../molecules/HourlyTile/HourlyTile";
+import ScrollBox from "../../atoms/ScrollBox/ScrollBox";
 
 export default function HourlyForecast() {
     const locationCode = FetchLocationCode();
@@ -55,9 +56,11 @@ export default function HourlyForecast() {
 
     return (
         <SectionTile extraClassnames="HourlyForecast" sectionName="Hourly Forecast">
-            {hourlyConditions && hourlyConditions.map((condition, index) => (
-                <HourlyTile condition={condition} key={index}/>
-            ))}
+            <ScrollBox>
+                {hourlyConditions && hourlyConditions.map((condition, index) => (
+                    <HourlyTile condition={condition} key={index}/>
+                ))}
+            </ScrollBox>
         </SectionTile>
     )
 }

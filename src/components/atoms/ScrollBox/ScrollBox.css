@@ -1,0 +1,17 @@
+.ScrollBox{
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    margin: 0;
+    direction: ltr;
+}
+
+.ScrollBox > *{
+    margin: 0 30px 10px 0;
+}
+
+.ScrollBox > *:last-of-type{
+    margin-right: 10px;
+}
