@@ -5,11 +5,11 @@ import AppContent from "./components/sections/AppContent/AppContent";
 export default function App() {
   return (
     <>
-      <LocationContextProvider>
-        <CurrentConditionContextProvider>
-          <AppContent />
-        </CurrentConditionContextProvider>
-      </LocationContextProvider>
+        <LocationContextProvider>
+            <CurrentConditionContextProvider>
+                <AppContent />
+            </CurrentConditionContextProvider>
+        </LocationContextProvider>
     </>
   )
 }

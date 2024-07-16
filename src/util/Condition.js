@@ -54,7 +54,12 @@ export default class Condition {
     }
 
     setTemp(temp) {
-        this.#temp = String(temp) + "°";
+        temp = String(temp);
+        // add the degree symbol if it's not already present
+        if(temp[temp.length - 1] !== "°"){
+            temp = temp + "°";
+        }
+        this.#temp = temp;
     }
 
     getTemp() {

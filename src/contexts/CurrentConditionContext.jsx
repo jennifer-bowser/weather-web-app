@@ -5,7 +5,7 @@ import fetchData from "../util/fetchData.js";
 import { setCookie, getCookie } from "../util/cookies.js";
 
 
-const CurrentConditonContext = createContext();
+export const CurrentConditonContext = createContext();
 
 export default function CurrentConditionContextProvider({ children }) {
     const locationCode = FetchLocationCode();
@@ -54,5 +54,6 @@ export function FetchCurrentCondition() {
     // if (context === undefined) {
     //     throw new Error("Context must be used within a Provider");
     // }
+    console.log("From FetchCurrentCondition: ", context);
     return context;
 }
