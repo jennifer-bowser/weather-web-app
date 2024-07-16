@@ -7,7 +7,7 @@ export default function HourlyTile({condition}){
     return(
         <div className="HourlyTile">
             <h2 className="HourlyTile-Time">{condition.getTime()}</h2>
-            <Tile useBoxShadow={true}>
+            <Tile useBoxShadow={true} backgroundColor={condition.getColor()}>
                 <WeatherIcon iconSrc={condition.getIcon()} />
                 <div className="HourlyTile-Label">
                     <p>{condition.getTemp()}</p>
