@@ -26,6 +26,7 @@ export default function HourlyForecast() {
         const hourlyConditions = [];
         for (let i = 0; i < json.length; i++) {
             const entry = json[i];
+            console.log(entry);
 
             const conditionCode = entry["WeatherIcon"];
             const condition = getCondition(conditionCode);
@@ -36,8 +37,9 @@ export default function HourlyForecast() {
             const isDay = entry["IsDaylight"];
             condition.setIsDay(isDay);
 
-            let time = entry["DateTime"]
+            let time = entry["DateTime"];
             time = time.substr(time.indexOf("T") + 1, 5);
+            console.log(time);
             condition.setTime(time);
 
             let percentPrecip = entry["PrecipitationProbability"];
@@ -46,6 +48,7 @@ export default function HourlyForecast() {
             hourlyConditions.push(condition);
         }
 
+        console.log(hourlyConditions);
         setHourlyConditions(hourlyConditions);
         setCookie("hourlyConditions", hourlyConditions);
     }
