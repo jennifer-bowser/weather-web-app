@@ -5,12 +5,12 @@
 }
 
 .PercentPrecip img {
-    height: 1em;
+    height: 1.75em;
     width: auto;
     margin-right: 7px;
 }
 
 .PercentPrecip p {
     margin: 0;
-    line-height: 1em;
+    line-height: 100%;
 }

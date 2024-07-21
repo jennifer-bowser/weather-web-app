@@ -1,0 +1,62 @@
+.HourlyTile {
+    --padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.HourlyTile h2 {
+    font-family: var(--font-family-bold);
+    font-size: 1.75em;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+    line-height: 1em;
+}
+
+.HourlyTile .Tile {
+    padding: var(--padding);
+    width: 250px;
+    height: 250px;
+}
+
+.HourlyTile .ConditionTile-ContentBox {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas:
+        "a a"
+        "b c";
+    grid-template-rows: 3fr 1.25fr;
+    grid-template-columns: 0.6fr 1fr;
+    gap: 0px;
+}
+
+.HourlyTile .WeatherIcon {
+    width: 100%;
+    padding-bottom: var(--padding);
+    grid-area: a
+}
+
+.HourlyTile p {
+    margin: 0;
+    font-size: 1.75em;
+    font-weight: 300;
+    text-align: center;
+    line-height: 100%;
+}
+
+.HourlyTile .ConditionTile-InfoBox {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.HourlyTile .ConditionTile-InfoBox:first-of-type {
+    grid-area: b;
+}
+
+.HourlyTile .ConditionTile-InfoBox:last-of-type {
+    grid-area: c;
+}

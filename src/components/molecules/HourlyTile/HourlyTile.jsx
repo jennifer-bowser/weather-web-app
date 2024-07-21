@@ -5,7 +5,6 @@ import PercentPrecip from "../../atoms/PercentPrecip/PercentPrecip";
 
 export default function HourlyTile({ condition }) {
     const borderStyle = `2px solid ${condition.getTextColor()}`;
-    (condition);
 
     return (
         <div className="HourlyTile">
