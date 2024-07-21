@@ -1,4 +1,4 @@
-.ScrollBox{
+.ScrollBox {
     display: flex;
     align-content: flex-start;
     flex-wrap: nowrap;
@@ -8,10 +8,10 @@
     direction: ltr;
 }
 
-.ScrollBox > *{
+.ScrollBox>* {
     margin: 0 30px 10px 0;
 }
 
-.ScrollBox > *:last-of-type{
+.ScrollBox>*:last-of-type {
     margin-right: 10px;
 }

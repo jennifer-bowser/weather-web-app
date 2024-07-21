@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import fetchData from "../../../util/fetchData";
 import { FetchLocationCode } from "../../../contexts/LocationContext";
 import getCondition from "../../../util/getCondition";
-import SectionTile from "../../molecules/SectionTile";
+import SectionTile from "../../molecules/SectionTile/SectionTile";
 import { setCookie, getCookie } from "../../../util/cookies";
 import HourlyTile from "../../molecules/HourlyTile/HourlyTile";
 import ScrollBox from "../../atoms/ScrollBox/ScrollBox";
@@ -55,7 +55,7 @@ export default function HourlyForecast() {
         <SectionTile extraClassnames="HourlyForecast" sectionName="Hourly Forecast">
             <ScrollBox>
                 {hourlyConditions && hourlyConditions.map((condition, index) => (
-                    <HourlyTile condition={condition} key={index}/>
+                    <HourlyTile condition={condition} key={index} />
                 ))}
             </ScrollBox>
         </SectionTile>

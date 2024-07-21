@@ -11,6 +11,7 @@ export default class Condition {
     #isDay = true;
     #temp = null;
     #time = null;
+    #date = null;
     #percentPrecip = null;
 
     constructor(id, text, dayIcon, nightIcon, dayColor, linkingWord) {
@@ -56,7 +57,7 @@ export default class Condition {
     setTemp(temp) {
         temp = String(temp);
         // add the degree symbol if it's not already present
-        if(temp[temp.length - 1] !== "°"){
+        if (temp[temp.length - 1] !== "°") {
             temp = temp + "°";
         }
         this.#temp = temp;
@@ -80,6 +81,14 @@ export default class Condition {
 
     getTime() {
         return this.#time;
+    }
+
+    setDate(date) {
+        this.#date = date;
+    }
+
+    getDate() {
+        return this.#date;
     }
 
     setPercentPrecip(percentPrecip) {

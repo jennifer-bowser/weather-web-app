@@ -54,6 +54,5 @@ export function FetchCurrentCondition() {
     // if (context === undefined) {
     //     throw new Error("Context must be used within a Provider");
     // }
-    console.log("From FetchCurrentCondition: ", context);
     return context;
 }
