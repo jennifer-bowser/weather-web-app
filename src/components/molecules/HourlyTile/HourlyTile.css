@@ -33,15 +33,14 @@
 .HourlyTile .WeatherIcon {
     width: 100%;
     padding-bottom: var(--padding);
-    border-bottom: var(--border);
     grid-area: a
 }
 
-.HourlyTile-Label p{
+.HourlyTile-Label p {
     margin: 0;
 }
 
-.HourlyTile-Label{
+.HourlyTile-Label {
     font-size: 1.75em;
     font-weight: 300;
     padding: 10px;
@@ -51,11 +50,10 @@
     align-items: center;
 }
 
-.HourlyTile-Label:first-of-type{
+.HourlyTile-Label:first-of-type {
     grid-area: b;
 }
 
-.HourlyTile-Label:last-of-type{
-    border-left: var(--border);
+.HourlyTile-Label:last-of-type {
     grid-area: c;
 }

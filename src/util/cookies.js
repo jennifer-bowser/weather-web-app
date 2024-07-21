@@ -61,6 +61,7 @@ function preprocessCondition(condition) {
     jsonObj["time"] = condition.getTime();
     jsonObj["temp"] = condition.getTemp();
     jsonObj["percentPrecip"] = condition.getPercentPrecip();
+    jsonObj["isDay"] = condition.isDay();
     return jsonObj;
 }
 
@@ -77,5 +78,6 @@ function parseCondition(conditionObj) {
     condition.setTime(conditionObj["time"]);
     condition.setTemp(conditionObj["temp"]);
     condition.setPercentPrecip(conditionObj["percentPrecip"]);
+    condition.setIsDay(conditionObj["isDay"]);
     return condition;
 }
